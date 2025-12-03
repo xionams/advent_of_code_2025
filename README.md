@@ -7,9 +7,11 @@ the problem simulates a circular lock (0–99) that rotates left and right, each
 ### Python Version
 ```bash
 python main.py
+```
 
 ### C Version
 ```bash
 gcc main.c -o main
 ./main
+```
 
