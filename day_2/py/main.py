@@ -11,7 +11,7 @@ def is_valid(num: str) -> bool:
     
     if len(num) > 1:
         for value in num:
-            chunk = chunk + str(value)
+            chunk += str(value)
             spaces = int(len(num) / len(chunk))
 
             if spaces >= 2:
@@ -28,18 +28,18 @@ def invalid(num: str) -> bool:
     half = len(num) // 2
     return num[:half] == num[half:]
 
-def read_line(chunks: list[str], validation_func: Callable) -> int:
+def read_line(chunks: list[str], validator: Callable) -> int:
     result = 0
     for chunk in chunks:
         start, end = chunk.split("-")
-        result += iterator(int(start), int(end) + 1, validation_func)
+        result += iterator(int(start), int(end) + 1, validator)
     return result
 
-def iterator(start: int, end: int, validation_func: Callable) -> int:
+def iterator(start: int, end: int, validator: Callable) -> int:
     sum_for_range = 0
     for num in range(start, end):
         # TODO: remove the comments to run the first part!
-        if validation_func(str(num)):
+        if validator(str(num)):
             sum_for_range += num
     return sum_for_range
 
